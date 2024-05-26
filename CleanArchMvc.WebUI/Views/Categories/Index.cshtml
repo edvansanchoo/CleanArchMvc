@@ -3,6 +3,7 @@
 
 <h1>Categories</h1>
 
+<br />
 <div class="row">
     <div class="col-md-12">
         <div>
@@ -14,34 +15,37 @@
         </div>
     </div>
 </div>
+<br />
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
+                            <span class="fas fa-edit">Edit</span>
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary">
+                            <span class="fas fa-eye">Details</span>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
+                            <span class="fas fa-trash">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+</div>
