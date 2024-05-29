@@ -34,11 +34,13 @@ namespace CleanArchMvc.Application.DTOs
 
         [MaxLength(250)]
         [Display(Name = "Product Image")]
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
-        [Display(Name = "Category")]
+        [Display(Name = "Categories")]
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
+
+
     }
 }
